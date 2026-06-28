@@ -80,6 +80,5 @@ Set the start command to:
 uvicorn api.main:app --host 0.0.0.0 --port $PORT
 ```
 
-
 ## Todo's
 - Update the CORS `allow_origins` in `api/main.py` with final frontend URL
