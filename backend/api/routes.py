@@ -85,6 +85,13 @@ def evaluate(body: EvaluateRequest):
     Given a guess and the true answer, return the colour pattern.
     Useful for the interactive frontend board.
     """
+
+    if not is_valid_word(body.guess):
+        raise HTTPException(
+            status_code=400,
+            detail="Not in word list"
+        )
+
     pattern = compute_pattern(body.guess, body.answer)
     return EvaluateResponse(
         guess=body.guess,
